@@ -1,6 +1,8 @@
 namespace WindowsForm {
     public partial class Form1 : Form {
         string[] unit = { "Weeks", "Days", "Hours", "Minutes", "Seconds" };
+        //create label string arrya
+        //string[] label = { }
         Dictionary<string, double> convertValues;
 
         //private double secondValues;
@@ -63,6 +65,17 @@ namespace WindowsForm {
             List<string> unitClone2 = new List<string>(unit);
             outputComboBox.DataSource = unitClone2;
             outputComboBox.SelectedItem = "Days";
+
+            var list = new List<Class1> {
+                new Class1 { Id = 1, Name = "A", Description="AA" },
+                new Class1 { Id = 2, Name = "AB", Description="AB" },
+                new Class1 { Id = 3, Name = "AC", Description="AC" }
+            };
+            ////Change display member to property Name
+            //cbTest.DisplayMember = "Name";
+            ////Change list Value
+            //cbTest.ValueMember = "Id";
+            //cbTest.DataSource = list;
         }
 
         private void DeleteAll_Click(object sender, EventArgs e) {
@@ -163,6 +176,7 @@ namespace WindowsForm {
         }
 
         private void inputComboBox_SelectedIndexChanged(object sender, EventArgs e) {
+            //MessageBox.Show($"{inputComboBox.SelectedIndex} - {inputComboBox.SelectedItem}");
             ConvertWhenCbChanged();
         }
 
@@ -179,6 +193,10 @@ namespace WindowsForm {
 
         private void inputValue_TextChanged(object sender, EventArgs e) {
             Convert();
+        }
+
+        private void cbTest_SelectedIndexChanged(object sender, EventArgs e) {
+            //MessageBox.Show($"{((Class1)cbTest.SelectedItem).Description}");
         }
     }
 }
